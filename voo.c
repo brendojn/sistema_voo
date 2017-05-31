@@ -13,6 +13,7 @@ int i, mil, q, indice = 0;
         for(i = 1; i <= 10; i++ ){
           numero_voo[indice] = mil + i;
           indice ++;
+          indice --;
         }
     }
 }
