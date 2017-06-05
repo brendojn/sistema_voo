@@ -4,13 +4,28 @@
 #include <conio.h>
 #include <time.h>
 
-int gerarCpf(int *cpf) {
-	int i;
-	srand(time(NULL));
-	for (i = 0; i <= 350; i++) {
-	    printf("%i\n", 100000000 + rand() % 999999999);
-	}
+
+
+int gerarCpf()
+{
+    int n, i;
+
+    // Inicializa a semente com o relógio interno do computador.
+    srand( (unsigned)time(NULL) );
+
+    for(i=1 ; i <= 350 ; i++)
+    {
+        n = (rand()%1000)*1000000;
+        n = n + (rand()%1000)*1000;
+        n = n + (rand()%1000);
+        // Imprime o número com 9 dígitos, completando-o com zeros à esquerda.
+        printf("Numero = %09d\n", n);
+    }
+
+    return (0);
+
 }
+
 
 int numerovoo(int *numero_voo){
 int i, mil, q, indice = 0;
@@ -37,16 +52,18 @@ int main(){
     gerarCpf(cpf);
 
     for(x;x<500;x++){
-        assentos[x]=0;
+        assentos[x] = 0;
     }
 
     for(x=0;x<350;x++){
         pos = cpf[x]%500;
         assentos[pos]=cpf[x];
 
+
         printf("\nAssento na posicao %d recebeu %d",pos,cpf[x]);
+        }
     }
 
 
 
-}
+
